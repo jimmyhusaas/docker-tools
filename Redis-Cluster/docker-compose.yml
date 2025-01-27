@@ -6,7 +6,8 @@ services:
   redis-node-1:
     image: redis:latest
     ports:
-      - 7001:7001
+      - 7001:7001      # 主埠，處理客戶端請求
+      - 17001:17001    # 集群內部通訊埠
     networks:
       - redis-cluster-compose
     hostname: redis-node-1
@@ -18,6 +19,7 @@ services:
     image: redis:latest
     ports:
       - 7002:7002
+      - 17002:17002
     networks:
       - redis-cluster-compose
     hostname: redis-node-2
@@ -29,6 +31,7 @@ services:
     image: redis:latest
     ports:
       - 7003:7003
+      - 17003:17003
     networks:
       - redis-cluster-compose
     hostname: redis-node-3
@@ -40,6 +43,7 @@ services:
     image: redis:latest
     ports:
       - 7004:7004
+      - 17004:17004
     networks:
       - redis-cluster-compose
     hostname: redis-node-4
@@ -51,6 +55,7 @@ services:
     image: redis:latest
     ports:
       - 7005:7005
+      - 17005:17005
     networks:
       - redis-cluster-compose
     hostname: redis-node-5
@@ -62,6 +67,7 @@ services:
     image: redis:latest
     ports:
       - 7006:7006
+      - 17006:17006
     networks:
       - redis-cluster-compose
     hostname: redis-node-6
